@@ -19,7 +19,7 @@ class FormVanilla extends React.Component {
         state = { title: value };
         break;
       case 'description':
-        state = { description: value }
+        state = { description: value };
         break;
       default:
         break;
@@ -28,27 +28,32 @@ class FormVanilla extends React.Component {
   }
 
   render() {
+    const { title, description } = this.state;
     return (
       <form onSubmit={this.onHandleSubmit}>
-        <label>Title:
+        <label htmlFor="title">
+          Title:
           <input
+            id="title"
             type="text"
             name="title"
             onChange={this.onChange}
-            value={this.state.title}
+            value={title}
           />
         </label>
-        <label>Description:
+        <label htmlFor="description">
+          Description:
           <input
             type="text"
             name="description"
+            title="description"
             onChange={this.onChange}
-            value={this.state.description}
+            value={description}
           />
         </label>
         <input type="submit" value="Save" />
       </form>
-    )
+    );
   }
 }
 
