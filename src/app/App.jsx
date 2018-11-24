@@ -9,25 +9,26 @@ import FormVanilla from './forms/FormVanilla';
 class App extends Component {
   render() {
     return (
-      <section>
-        <MenuList>
-          <MenuItem>
-            <Link to="/form-vanilla" > Form Vanilla </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/form-redux-form" > Form with redux-form </Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/form-formik" > Form with Formik </Link>
-          </MenuItem>
-        </MenuList>
-        <Switch>
-          <Route path="/form-vanilla" component={FormVanilla}/>
-          <Route path="/form-redux-form" component={FormReduxForm}/>
-          <Route path="/form-formik" component={formWithFormik}/>
-        </Switch>
-      </section>
-
+      <header>
+        <section>
+          <MenuList>
+            <MenuItem>
+              <Link to="/form-vanilla" > Form Vanilla </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/form-redux-form" > Form with redux-form </Link>
+            </MenuItem>
+            <MenuItem>
+              <Link to="/form-formik" > Form with Formik </Link>
+            </MenuItem>
+          </MenuList>
+          <Switch>
+            <Route path="/form-vanilla" component={FormVanilla} />
+            <Route path="/form-redux-form" component={FormReduxForm} />
+            <Route path="/form-formik" component={formWithFormik} />
+          </Switch>
+        </section>
+      </header>
     )
   }
 }
