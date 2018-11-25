@@ -33,7 +33,7 @@ const renderRadioGroup = ({ field, children, form: { setFieldValue } }) => (
   </RadioGroup>
 );
 
-const formWithFormik = () => {
+const FormWithFormik = () => {
   const initialValues = {
     firstName: '',
     lastName: '',
@@ -87,4 +87,4 @@ const formWithFormik = () => {
   );
 };
 
-export default formWithFormik;
+export default FormWithFormik;
