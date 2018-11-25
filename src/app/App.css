@@ -1,3 +1,13 @@
+body{
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+}
+
 form div > {
   display: flex;
+}
+
+section header div h3.MuiTypography-h3-55{
+  color: #fff;
+  text-align: center;
+  width: 100%;
 }
