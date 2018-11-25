@@ -14,7 +14,7 @@ const renderTextField = ({
     {...input}
     placeholder={placeholder}
     helperText={(submitFailed) ? error : ''}
-    error={submitFailed && error}
+    error={Boolean(submitFailed && error)}
   />
 );
 
