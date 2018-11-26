@@ -1,58 +1,100 @@
-import React from 'react';
+import React, { Fragment } from 'react';
+import {
+  TextField, Button, RadioGroup,
+  FormControlLabel, Radio, InputLabel,
+} from '@material-ui/core';
 
 class FormVanilla extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      title: '',
-      description: '',
-    };
-    this.onChange = this.onChange.bind(this);
-  }
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    gender: '',
+  };
 
-  onChange(event) {
-    let state = {};
+  onChange = (event) => {
+    const state = {};
     const { name, value } = event.target;
-
-    switch (name) {
-      case 'title':
-        state = { title: value };
-        break;
-      case 'description':
-        state = { description: value };
-        break;
-      default:
-        break;
-    }
+    state[name] = value;
     this.setState(state);
   }
 
+  onSubmit = (e) => {
+    e.preventDefault();
+    const {
+      firstName, lastName, email, gender,
+    } = this.state;
+    const values = {
+      firstName, lastName, email, gender,
+    };
+    const errors = this.validateForm(values);
+    if (Object.keys(errors).length) {
+      this.setState({
+        errors,
+        submitFailed: true,
+      });
+    } else {
+      console.log(values);
+      const { submitFailed } = this.state;
+      if (submitFailed) {
+        this.setState({ errors: {}, submitFailed: false });
+      }
+    }
+  }
+
+  validateForm = (values) => {
+    const errors = {};
+    if (!values.firstName) {
+      errors.firstName = 'required';
+    }
+    return errors;
+  }
+
   render() {
-    const { title, description } = this.state;
+    const {
+      firstName, lastName, email,
+      gender, errors, submitFailed,
+    } = this.state;
     return (
-      <form onSubmit={this.onHandleSubmit}>
-        <label htmlFor="title">
-          Title:
-          <input
-            id="title"
-            type="text"
-            name="title"
+      <Fragment>
+        <h3>
+          Form without framework
+        </h3>
+        <form onSubmit={this.onSubmit}>
+          <TextField
+            name="firstName"
+            value={firstName}
+            placeholder="First name"
             onChange={this.onChange}
-            value={title}
+            helperText={(submitFailed) ? errors.firstName : ''}
+            error={Boolean(submitFailed && errors.firstName)}
           />
-        </label>
-        <label htmlFor="description">
-          Description:
-          <input
-            type="text"
-            name="description"
-            title="description"
+          <TextField
+            name="lastName"
+            value={lastName}
+            placeholder="Last name"
             onChange={this.onChange}
-            value={description}
           />
-        </label>
-        <input type="submit" value="Save" />
-      </form>
+          <TextField
+            name="email"
+            value={email}
+            placeholder="Email"
+            onChange={this.onChange}
+          />
+          <div className="MuiFormControl-root-103">
+            <InputLabel> Gender </InputLabel>
+            <RadioGroup
+              name="gender"
+              value={gender}
+              onChange={this.onChange}
+            >
+              <FormControlLabel value="male" control={<Radio />} label="Male" />
+              <FormControlLabel value="female" control={<Radio />} label="Female" />
+            </RadioGroup>
+          </div>
+          <Button type="submit">Submit</Button>
+        </form>
+      </Fragment>
     );
   }
 }

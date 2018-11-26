@@ -6,17 +6,19 @@ import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
+import Button from '@material-ui/core/Button';
+import { InputLabel } from '@material-ui/core';
 
 const renderTextField = ({
   input, placeholder, meta: { error, submitFailed },
 }) => (
-  <TextField
-    {...input}
-    placeholder={placeholder}
-    helperText={(submitFailed) ? error : ''}
-    error={Boolean(submitFailed && error)}
-  />
-);
+    <TextField
+      {...input}
+      placeholder={placeholder}
+      helperText={(submitFailed) ? error : ''}
+      error={Boolean(submitFailed && error)}
+    />
+  );
 
 const renderRadioGroup = ({ input, ...rest }) => (
   <RadioGroup
@@ -63,11 +65,14 @@ const FormReduxForm = (props) => {
           type="email"
           component={renderTextField}
         />
-        <Field name="sex" component={renderRadioGroup}>
-          <FormControlLabel value="male" control={<Radio />} label="Male" />
-          <FormControlLabel value="female" control={<Radio />} label="Female" />
-        </Field>
-        <button type="submit">Submit</button>
+        <div className="MuiFormControl-root-103">
+          <InputLabel> Gender </InputLabel>
+          <Field name="gender" component={renderRadioGroup}>
+            <FormControlLabel value="male" control={<Radio />} label="Male" />
+            <FormControlLabel value="female" control={<Radio />} label="Female" />
+          </Field>
+        </div>
+        <Button type="submit">Submit</Button>
       </form>
     </Fragment>
   );

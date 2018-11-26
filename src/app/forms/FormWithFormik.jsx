@@ -5,6 +5,7 @@ import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
+import { InputLabel } from '@material-ui/core';
 
 const renderTextField = ({
   field,
@@ -75,10 +76,13 @@ const FormWithFormik = () => {
               type="email"
               component={renderTextField}
             />
-            <Field name="sex" component={renderRadioGroup}>
-              <FormControlLabel value="male" control={<Radio />} label="Male" />
-              <FormControlLabel value="female" control={<Radio />} label="Female" />
-            </Field>
+            <div className="MuiFormControl-root-103">
+              <InputLabel> Gender </InputLabel>
+              <Field name="gender" component={renderRadioGroup}>
+                <FormControlLabel value="male" control={<Radio />} label="Male" />
+                <FormControlLabel value="female" control={<Radio />} label="Female" />
+              </Field>
+            </div>
             <Button type="submit">Submit</Button>
           </Form>
         )}

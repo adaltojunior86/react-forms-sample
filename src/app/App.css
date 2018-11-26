@@ -2,12 +2,24 @@ body{
   font-family: "Roboto", "Helvetica", "Arial", sans-serif;
 }
 
-form div > {
+form {
+  position: absolute;
   display: flex;
+  flex-flow: column;
+  width: 400px;
+  left: calc(50% - 200px);
+}
+
+form div.MuiFormControl-root-103{
+  padding: 5px 0;
 }
 
 section header div h3.MuiTypography-h3-55{
   color: #fff;
   text-align: center;
   width: 100%;
+}
+
+section h3{
+  text-align: center;
 }
