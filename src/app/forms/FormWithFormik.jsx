@@ -7,18 +7,11 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import { InputLabel } from '@material-ui/core';
 
-const renderTextField = ({
-  field,
-  placeholder,
-  form: { submitCount, errors },
-}) => (
+const renderTextField = ({ field, placeholder, form: { submitCount, errors } }) => (
   <TextField
     {...field}
     placeholder={placeholder}
-    helperText={
-      (submitCount && errors[field.name])
-        ? errors[field.name] : ''
-    }
+    helperText={submitCount && errors[field.name] ? errors[field.name] : ''}
     error={Boolean(submitCount && errors[field.name])}
   />
 );
@@ -43,9 +36,7 @@ const FormWithFormik = () => {
   };
   return (
     <Fragment>
-      <h3>
-        Form with Formik
-      </h3>
+      <h3>Form with Formik</h3>
       <Formik
         validate={(values) => {
           const errors = {};
@@ -60,22 +51,9 @@ const FormWithFormik = () => {
         }}
         render={() => (
           <Form>
-            <Field
-              name="firstName"
-              placeholder="First Name"
-              component={renderTextField}
-            />
-            <Field
-              name="lastName"
-              placeholder="Last Name"
-              component={renderTextField}
-            />
-            <Field
-              name="email"
-              placeholder="Email"
-              type="email"
-              component={renderTextField}
-            />
+            <Field name="firstName" placeholder="First Name" component={renderTextField} />
+            <Field name="lastName" placeholder="Last Name" component={renderTextField} />
+            <Field name="email" placeholder="Email" type="email" component={renderTextField} />
             <div className="MuiFormControl-root-103">
               <InputLabel> Gender </InputLabel>
               <Field name="gender" component={renderRadioGroup}>

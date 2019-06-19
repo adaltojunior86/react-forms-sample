@@ -9,6 +9,7 @@ import {
 import FormReduxForm from './forms/FormReduxForm';
 import FormWithFormik from './forms/FormWithFormik';
 import FormVanilla from './forms/FormVanilla';
+import FormHooks from './forms/FormHooks';
 
 class App extends React.Component {
   constructor(props) {
@@ -31,6 +32,8 @@ class App extends React.Component {
         return <FormReduxForm />;
       case 2:
         return <FormWithFormik />;
+      case 3:
+        return <FormHooks />;
       default:
         return <FormVanilla />;
     }
@@ -51,6 +54,7 @@ class App extends React.Component {
             <Tab label="Form Vanilla" />
             <Tab label="Form with redux-form" />
             <Tab label="Form with Formik" />
+            <Tab label="Form with useState" />
           </Tabs>
         </AppBar>
         <section>

@@ -1,7 +1,11 @@
 import React, { Fragment } from 'react';
 import {
-  TextField, Button, RadioGroup,
-  FormControlLabel, Radio, InputLabel,
+  TextField,
+  Button,
+  RadioGroup,
+  FormControlLabel,
+  Radio,
+  InputLabel,
 } from '@material-ui/core';
 
 class FormVanilla extends React.Component {
@@ -10,6 +14,9 @@ class FormVanilla extends React.Component {
     lastName: '',
     email: '',
     gender: '',
+    errors: {
+      firstName: '',
+    },
   };
 
   onChange = (event) => {
@@ -17,7 +24,7 @@ class FormVanilla extends React.Component {
     const { name, value } = event.target;
     state[name] = value;
     this.setState(state);
-  }
+  };
 
   onSubmit = (e) => {
     e.preventDefault();
@@ -25,7 +32,10 @@ class FormVanilla extends React.Component {
       firstName, lastName, email, gender,
     } = this.state;
     const values = {
-      firstName, lastName, email, gender,
+      firstName,
+      lastName,
+      email,
+      gender,
     };
     const errors = this.validateForm(values);
     if (Object.keys(errors).length) {
@@ -34,39 +44,32 @@ class FormVanilla extends React.Component {
         submitFailed: true,
       });
     } else {
-      console.log(values);
-      const { submitFailed } = this.state;
-      if (submitFailed) {
-        this.setState({ errors: {}, submitFailed: false });
-      }
+      this.setState({ errors: {}, submitFailed: false });
     }
-  }
+  };
 
-  validateForm = (values) => {
+  validateForm = ({ firstName }) => {
     const errors = {};
-    if (!values.firstName) {
+    if (!firstName) {
       errors.firstName = 'required';
     }
     return errors;
-  }
+  };
 
   render() {
     const {
-      firstName, lastName, email,
-      gender, errors, submitFailed,
+      firstName, lastName, email, gender, errors, submitFailed,
     } = this.state;
     return (
       <Fragment>
-        <h3>
-          Form without framework
-        </h3>
+        <h3>Form without framework</h3>
         <form onSubmit={this.onSubmit}>
           <TextField
             name="firstName"
             value={firstName}
             placeholder="First name"
             onChange={this.onChange}
-            helperText={(submitFailed) ? errors.firstName : ''}
+            helperText={errors.firstName}
             error={Boolean(submitFailed && errors.firstName)}
           />
           <TextField
@@ -75,19 +78,10 @@ class FormVanilla extends React.Component {
             placeholder="Last name"
             onChange={this.onChange}
           />
-          <TextField
-            name="email"
-            value={email}
-            placeholder="Email"
-            onChange={this.onChange}
-          />
+          <TextField name="email" value={email} placeholder="Email" onChange={this.onChange} />
           <div className="MuiFormControl-root-103">
             <InputLabel> Gender </InputLabel>
-            <RadioGroup
-              name="gender"
-              value={gender}
-              onChange={this.onChange}
-            >
+            <RadioGroup name="gender" value={gender} onChange={this.onChange}>
               <FormControlLabel value="male" control={<Radio />} label="Male" />
               <FormControlLabel value="female" control={<Radio />} label="Female" />
             </RadioGroup>

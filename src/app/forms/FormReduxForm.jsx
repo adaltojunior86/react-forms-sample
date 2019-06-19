@@ -9,16 +9,14 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Button from '@material-ui/core/Button';
 import { InputLabel } from '@material-ui/core';
 
-const renderTextField = ({
-  input, placeholder, meta: { error, submitFailed },
-}) => (
-    <TextField
-      {...input}
-      placeholder={placeholder}
-      helperText={(submitFailed) ? error : ''}
-      error={Boolean(submitFailed && error)}
-    />
-  );
+const renderTextField = ({ input, placeholder, meta: { error, submitFailed } }) => (
+  <TextField
+    {...input}
+    placeholder={placeholder}
+    helperText={submitFailed ? error : ''}
+    error={Boolean(submitFailed && error)}
+  />
+);
 
 const renderRadioGroup = ({ input, ...rest }) => (
   <RadioGroup
@@ -41,30 +39,15 @@ const FormReduxForm = (props) => {
   const { handleSubmit } = props;
   return (
     <Fragment>
-      <h3>
-        Form with Redux form
-      </h3>
-      <form onSubmit={
-        handleSubmit(() => {
+      <h3>Form with Redux form</h3>
+      <form
+        onSubmit={handleSubmit(() => {
           console.log('submitted');
         })}
       >
-        <Field
-          name="firstName"
-          placeholder="First Name"
-          component={renderTextField}
-        />
-        <Field
-          name="lastName"
-          placeholder="Last Name"
-          component={renderTextField}
-        />
-        <Field
-          name="email"
-          placeholder="Email"
-          type="email"
-          component={renderTextField}
-        />
+        <Field name="firstName" placeholder="First Name" component={renderTextField} />
+        <Field name="lastName" placeholder="Last Name" component={renderTextField} />
+        <Field name="email" placeholder="Email" type="email" component={renderTextField} />
         <div className="MuiFormControl-root-103">
           <InputLabel> Gender </InputLabel>
           <Field name="gender" component={renderRadioGroup}>
