@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { func } from 'prop-types';
+import { func, element, object, shape } from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -17,15 +17,19 @@ const renderTextField = ({ input, placeholder, meta: { error, submitFailed } }) 
     error={Boolean(submitFailed && error)}
   />
 );
-
-const renderRadioGroup = ({ input, ...rest }) => (
+const onChangeRadioButton = input => (event, value) => input.onChange(value);
+const CustomRadioGroup = ({ input, ...rest }) => (
   <RadioGroup
     {...input}
     {...rest}
     value={input.value}
-    onChange={(event, value) => input.onChange(value)}
+    onChange={onChangeRadioButton(input)}
   />
 );
+
+CustomRadioGroup.propTypes = {
+  input: shape({}).isRequired,
+};
 
 const validateForm = (values) => {
   const errors = {};
@@ -50,7 +54,7 @@ const FormReduxForm = (props) => {
         <Field name="email" placeholder="Email" type="email" component={renderTextField} />
         <div className="MuiFormControl-root-103">
           <InputLabel> Gender </InputLabel>
-          <Field name="gender" component={renderRadioGroup}>
+          <Field name="gender" component={CustomRadioGroup}>
             <FormControlLabel value="male" control={<Radio />} label="Male" />
             <FormControlLabel value="female" control={<Radio />} label="Female" />
           </Field>
