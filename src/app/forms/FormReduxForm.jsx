@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { func, element, object, shape } from 'prop-types';
+import { func, shape, string } from 'prop-types';
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
 import RadioGroup from '@material-ui/core/RadioGroup';
@@ -17,6 +17,12 @@ const renderTextField = ({ input, placeholder, meta: { error, submitFailed } }) 
     error={Boolean(submitFailed && error)}
   />
 );
+
+renderTextField.propTypes = {
+  input: shape({}).isRequired,
+  placeholder: string.isRequired,
+  meta: shape({}).isRequired,
+};
 const onChangeRadioButton = input => (event, value) => input.onChange(value);
 const CustomRadioGroup = ({ input, ...rest }) => (
   <RadioGroup
