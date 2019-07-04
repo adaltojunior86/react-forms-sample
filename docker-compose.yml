@@ -7,13 +7,13 @@ services:
     ports: 
       - "3000:3000"
     volumes:
-      - /node_modules
-      - .:/src
+      - node_modules/
+      - src/
   tests:
     build:
       context: .
       dockerfile: Dockerfile
     volumes:
-      - /node_modules
-      - .:/src
+      - node_modules/
+      - src/
     command: ["npm", "run", "test"]
