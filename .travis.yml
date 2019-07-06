@@ -3,10 +3,10 @@ services:
   - docker
 
 before_install:
-  - docker-compose build
+  - docker build -t adalto/docker-react -f Dockerfile .
 
 script:
-  - docker-compose up tests
+  - docker run adalto/docker-react npm run test --coverage
 
 deploy:
   provider: elasticbeanstalk
