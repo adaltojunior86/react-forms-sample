@@ -6,7 +6,7 @@ before_install:
   - docker build -t adalto/docker-react -f Dockerfile .
 
 script:
-  - docker run adalto/docker-react CI=true npm run test --coverage
+  - docker run adalto/docker-react npm run test --coverage
 
 deploy:
   provider: elasticbeanstalk
