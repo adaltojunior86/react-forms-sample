@@ -1,22 +1,22 @@
-sudo: required
-services:
-  - docker
+# sudo: required
+# services:
+#   - docker
 
-before_install:
-  - docker build -t adalto/docker-react -f Dockerfile .
+# before_install:
+#   - docker build -t adalto/docker-react -f Dockerfile .
 
-script:
-  - docker run adalto/docker-react npm run test --coverage
+# script:
+#   - docker run adalto/docker-react npm run test --coverage
 
-deploy:
-  provider: elasticbeanstalk
-  region: "us-east-1"
-  app: "react-docker"
-  env: "ReactDocker-env"
-  bucket_name: "elasticbeanstalk-us-east-1-283396137683"
-  bucket_path: "docker"
-  on:
-    branch: master
-  access_key_id: $AWS_ACCESS_KEY
-  secret_access_key:
-    secure: $AWS_SECRET_KEY
+# deploy:
+#   provider: elasticbeanstalk
+#   region: "us-east-1"
+#   app: "react-docker"
+#   env: "ReactDocker-env"
+#   bucket_name: "elasticbeanstalk-us-east-1-283396137683"
+#   bucket_path: "docker"
+#   on:
+#     branch: master
+#   access_key_id: $AWS_ACCESS_KEY
+#   secret_access_key:
+#     secure: $AWS_SECRET_KEY
