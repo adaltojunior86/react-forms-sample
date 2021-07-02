@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { func, shape, string } from 'prop-types';
@@ -45,11 +45,7 @@ const FormReduxForm = (props) => {
   return (
     <>
       <h3>Form with Redux form</h3>
-      <form
-        onSubmit={handleSubmit(() => {
-          console.log('submitted');
-        })}
-      >
+      <form onSubmit={handleSubmit(() => {})}>
         <Field name="firstName" placeholder="First Name" component={renderTextField} />
         <Field name="lastName" placeholder="Last Name" component={renderTextField} />
         <Field name="email" placeholder="Email" type="email" component={renderTextField} />

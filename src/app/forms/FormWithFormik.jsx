@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Formik, Form, Field } from 'formik';
 import TextField from '@material-ui/core/TextField';
 import Radio from '@material-ui/core/Radio';
@@ -60,9 +60,7 @@ const onValidate = (values) => {
   return errors;
 };
 
-const onSubmit = (props) => {
-  console.log(props);
-};
+const onSubmit = () => {};
 
 const RenderForm = () => (
   <Form>
