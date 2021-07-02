@@ -19,8 +19,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js --ext .jsx src",
-    "heroku-postbuild": "react-scripts build"
+    "lint": "eslint --ext .js --ext .jsx src"
   },
   "eslintConfig": {
     "extends": [
