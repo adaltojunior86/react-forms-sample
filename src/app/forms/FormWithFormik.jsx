@@ -23,19 +23,15 @@ renderTextField.propTypes = {
   form: shape({}).isRequired,
 };
 
-const onChangeGender = setFieldValue => (event, value) => {
+const onChangeGender = (setFieldValue) => (event, value) => {
   setFieldValue('sex', value);
 };
 
 const renderRadioGroup = ({ field, children, form: { setFieldValue } }) => (
-  <RadioGroup
-    {...field}
-    onChange={onChangeGender(setFieldValue)}
-  >
+  <RadioGroup {...field} onChange={onChangeGender(setFieldValue)}>
     {children}
   </RadioGroup>
 );
-
 
 renderRadioGroup.propTypes = {
   field: shape({}).isRequired,
@@ -85,7 +81,7 @@ const RenderForm = () => (
 );
 
 const FormWithFormik = () => (
-  <Fragment>
+  <>
     <h3>Form with Formik</h3>
     <Formik
       validate={onValidate}
@@ -93,7 +89,7 @@ const FormWithFormik = () => (
       onSubmit={onSubmit}
       render={RenderForm}
     />
-  </Fragment>
+  </>
 );
 
 export default FormWithFormik;

@@ -1,11 +1,6 @@
 import React from 'react';
 import './App.css';
-import {
-  AppBar, Tabs,
-  Tab,
-  Typography,
-  Toolbar,
-} from '@material-ui/core';
+import { AppBar, Tabs, Tab, Typography, Toolbar } from '@material-ui/core';
 import FormReduxForm from './forms/FormReduxForm';
 import FormWithFormik from './forms/FormWithFormik';
 import FormVanilla from './forms/FormVanilla';
@@ -24,7 +19,7 @@ class App extends React.Component {
     this.setState({
       tabSelected: value,
     });
-  }
+  };
 
   renderForm = (tabSelected) => {
     switch (tabSelected) {
@@ -37,7 +32,7 @@ class App extends React.Component {
       default:
         return <FormVanilla />;
     }
-  }
+  };
 
   render() {
     const { tabSelected } = this.state;
@@ -45,9 +40,7 @@ class App extends React.Component {
       <section>
         <AppBar position="relative">
           <Toolbar>
-            <Typography variant="h3">
-              React Forms
-            </Typography>
+            <Typography variant="h3">React Forms</Typography>
           </Toolbar>
 
           <Tabs value={tabSelected} onChange={this.onChangeTab} centered>
@@ -57,9 +50,7 @@ class App extends React.Component {
             <Tab label="Form with useState" />
           </Tabs>
         </AppBar>
-        <section>
-          {this.renderForm(tabSelected)}
-        </section>
+        <section>{this.renderForm(tabSelected)}</section>
       </section>
     );
   }

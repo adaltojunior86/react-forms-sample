@@ -23,14 +23,9 @@ renderTextField.propTypes = {
   placeholder: string.isRequired,
   meta: shape({}).isRequired,
 };
-const onChangeRadioButton = input => (event, value) => input.onChange(value);
+const onChangeRadioButton = (input) => (event, value) => input.onChange(value);
 const CustomRadioGroup = ({ input, ...rest }) => (
-  <RadioGroup
-    {...input}
-    {...rest}
-    value={input.value}
-    onChange={onChangeRadioButton(input)}
-  />
+  <RadioGroup {...input} {...rest} value={input.value} onChange={onChangeRadioButton(input)} />
 );
 
 CustomRadioGroup.propTypes = {
@@ -48,7 +43,7 @@ const validateForm = (values) => {
 const FormReduxForm = (props) => {
   const { handleSubmit } = props;
   return (
-    <Fragment>
+    <>
       <h3>Form with Redux form</h3>
       <form
         onSubmit={handleSubmit(() => {
@@ -67,7 +62,7 @@ const FormReduxForm = (props) => {
         </div>
         <Button type="submit">Submit</Button>
       </form>
-    </Fragment>
+    </>
   );
 };
 
@@ -75,7 +70,7 @@ FormReduxForm.propTypes = {
   handleSubmit: func.isRequired,
 };
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state) => ({
   reduxFormSampleState: state.form.reduxFormSample,
 });
 const reduxFormSampleWrapped = reduxForm({

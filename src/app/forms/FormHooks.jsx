@@ -10,11 +10,10 @@ import {
 import useForm from '../hooks/useForm';
 
 const FormHooks = () => {
-  const [{
-    firstName, lastName, email, gender, submitFailed, errors,
-  }, onChange, onSubmit] = useForm();
+  const [{ firstName, lastName, email, gender, submitFailed, errors }, onChange, onSubmit] =
+    useForm();
   return (
-    <Fragment>
+    <>
       <h3>Form using useREducer</h3>
       <form onSubmit={onSubmit}>
         <TextField
@@ -36,7 +35,7 @@ const FormHooks = () => {
         </div>
         <Button type="submit">Submit</Button>
       </form>
-    </Fragment>
+    </>
   );
 };
 

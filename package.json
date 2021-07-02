@@ -19,27 +19,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --cache --ext .js --ext .jsx src",
+    "lint": "eslint --ext .js --ext .jsx src",
     "heroku-postbuild": "echo Skip build on Heroku"
-  },
-  "eslintConfig": {
-    "extends": [
-      "react-app",
-      "airbnb",
-      "plugin:react-perf/recommended"
-    ],
-    "rules": {
-      "import/no-extraneous-dependencies": [
-        "error",
-        {
-          "devDependencies": [
-            "./src/app/helpers/*.js",
-            "**/*.test.jsx",
-            "**/*.spec.jsx"
-          ]
-        }
-      ]
-    }
   },
   "browserslist": [
     ">0.2%",
@@ -48,12 +29,15 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@testing-library/react": "^11.2.7",
-    "cypress": "^7.5.0",
+    "@testing-library/react": "^12.0.0",
+    "cypress": "^7.6.0",
     "eslint-config-airbnb": "^18.2.1",
+    "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-react-perf": "^3.3.0"
+    "eslint-plugin-react-perf": "^3.3.0",
+    "prettier": "^2.3.2"
   },
   "heroku-run-build-script": true
 }

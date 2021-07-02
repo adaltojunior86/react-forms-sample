@@ -23,7 +23,9 @@ describe('test Form Vanilla', () => {
     expect(container).not.toBeUndefined();
     container.querySelector('button[type="submit"]').click();
     expect(getByText('required')).not.toBeUndefined();
-    fireEvent.change(container.querySelector('input[name="firstName"]'), { target: { value: 'teste' } });
+    fireEvent.change(container.querySelector('input[name="firstName"]'), {
+      target: { value: 'teste' },
+    });
     expect(container.querySelector('input[name="firstName"]').value).toEqual('teste');
     container.querySelector('button[type="submit"]').click();
     expect(container.querySelector('.Mui-error')).toBeNull();

@@ -18,13 +18,7 @@ const useForm = () => {
 
   const onSubmit = (e) => {
     e.preventDefault();
-    const {
-      firstName,
-      lastName,
-      email,
-      gender,
-      submitFailed,
-    } = values;
+    const { firstName, lastName, email, gender, submitFailed } = values;
     const valuesRequired = validateForm({
       firstName,
       lastName,
@@ -41,11 +35,7 @@ const useForm = () => {
     }
   };
 
-  return [
-    values,
-    onChange,
-    onSubmit,
-  ];
+  return [values, onChange, onSubmit];
 };
 
 export default useForm;

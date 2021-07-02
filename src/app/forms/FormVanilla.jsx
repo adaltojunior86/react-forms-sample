@@ -28,9 +28,7 @@ class FormVanilla extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const {
-      firstName, lastName, email, gender,
-    } = this.state;
+    const { firstName, lastName, email, gender } = this.state;
     const values = {
       firstName,
       lastName,
@@ -57,11 +55,9 @@ class FormVanilla extends React.Component {
   };
 
   render() {
-    const {
-      firstName, lastName, email, gender, errors, submitFailed,
-    } = this.state;
+    const { firstName, lastName, email, gender, errors, submitFailed } = this.state;
     return (
-      <Fragment>
+      <>
         <h3>Form without framework</h3>
         <form onSubmit={this.onSubmit}>
           <TextField
@@ -88,7 +84,7 @@ class FormVanilla extends React.Component {
           </div>
           <Button type="submit">Submit</Button>
         </form>
-      </Fragment>
+      </>
     );
   }
 }
