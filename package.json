@@ -19,7 +19,9 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js --ext .jsx src"
+    "lint": "eslint --ext .js --ext .jsx src",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run"
   },
   "eslintConfig": {
     "extends": [
@@ -34,25 +36,56 @@
       "prettier"
     ],
     "rules": {
-      "prettier/prettier": ["error", { "singleQuote": true, "parse": "flow" }],
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "parse": "flow"
+        }
+      ],
       "jsx-a11y/click-events-have-key-events": "off",
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
       "react/state-in-constructor": "off",
       "object-curly-newline": "off",
-      "react/forbid-prop-types": [1, {
-        "forbid": ["any"]
-      }],
-      "implicit-arrow-linebreak": [0],
+      "react/forbid-prop-types": [
+        1,
+        {
+          "forbid": [
+            "any"
+          ]
+        }
+      ],
+      "implicit-arrow-linebreak": [
+        0
+      ],
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "off",
-      "comma-dangle": ["error", {
-        "arrays": "only-multiline",
-        "objects": "only-multiline",
-        "functions": "never",
-        "imports": "only-multiline"
-      }],
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-      "react/jsx-props-no-spreading": [0]
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "only-multiline",
+          "objects": "only-multiline",
+          "functions": "never",
+          "imports": "only-multiline"
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "react/jsx-props-no-spreading": [
+        0
+      ]
     }
   },
   "browserslist": [
@@ -63,7 +96,7 @@
   ],
   "devDependencies": {
     "@testing-library/react": "^12.0.0",
-    "cypress": "^7.6.0",
+    "cypress": "^7.7.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
