@@ -12,14 +12,20 @@
     "react-redux": "^7.2.4",
     "react-scripts": "^4.0.3",
     "redux": "^4.1.0",
-    "redux-form": "^8.3.7"
+    "redux-form": "^8.3.7",
+    "serve": "^12.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "lint": "eslint --ext .js --ext .jsx src"
+    "lint": "eslint --ext .js --ext .jsx src",
+    "run:prod": "serve -s build",
+    "cypress:test:prod": "BROWSER=none CI=true start-server-and-test run:prod http://localhost:5000 cypress:run",
+    "cypress:test:dev": "BROWSER=none NODE_ENV=development PORT=5000 start-server-and-test start http://localhost:5000 cypress:open",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run --record --key c46bdd78-7fc5-4334-bfc3-2ce7b93eddfa"
   },
   "eslintConfig": {
     "extends": [
@@ -34,25 +40,56 @@
       "prettier"
     ],
     "rules": {
-      "prettier/prettier": ["error", { "singleQuote": true, "parse": "flow" }],
+      "prettier/prettier": [
+        "error",
+        {
+          "singleQuote": true,
+          "parse": "flow"
+        }
+      ],
       "jsx-a11y/click-events-have-key-events": "off",
-      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+      "react/jsx-filename-extension": [
+        1,
+        {
+          "extensions": [
+            ".js",
+            ".jsx"
+          ]
+        }
+      ],
       "react/state-in-constructor": "off",
       "object-curly-newline": "off",
-      "react/forbid-prop-types": [1, {
-        "forbid": ["any"]
-      }],
-      "implicit-arrow-linebreak": [0],
+      "react/forbid-prop-types": [
+        1,
+        {
+          "forbid": [
+            "any"
+          ]
+        }
+      ],
+      "implicit-arrow-linebreak": [
+        0
+      ],
       "react-hooks/rules-of-hooks": "error",
       "react-hooks/exhaustive-deps": "off",
-      "comma-dangle": ["error", {
-        "arrays": "only-multiline",
-        "objects": "only-multiline",
-        "functions": "never",
-        "imports": "only-multiline"
-      }],
-      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
-      "react/jsx-props-no-spreading": [0]
+      "comma-dangle": [
+        "error",
+        {
+          "arrays": "only-multiline",
+          "objects": "only-multiline",
+          "functions": "never",
+          "imports": "only-multiline"
+        }
+      ],
+      "import/no-extraneous-dependencies": [
+        "error",
+        {
+          "devDependencies": true
+        }
+      ],
+      "react/jsx-props-no-spreading": [
+        0
+      ]
     }
   },
   "browserslist": [
@@ -62,15 +99,17 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "@cypress/code-coverage": "^3.9.9",
     "@testing-library/react": "^12.0.0",
-    "cypress": "^7.6.0",
+    "cypress": "^7.7.0",
     "eslint-config-airbnb": "^18.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-react-perf": "^3.3.0",
-    "prettier": "^2.3.2"
+    "prettier": "^2.3.2",
+    "start-server-and-test": "^1.12.6"
   },
   "heroku-run-build-script": true
 }
