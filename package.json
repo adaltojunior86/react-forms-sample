@@ -6,14 +6,14 @@
   "dependencies": {
     "@material-ui/core": "^4.12.3",
     "formik": "^2.2.9",
-    "prop-types": "^15.7.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-redux": "^7.2.5",
-    "react-scripts": "^4.0.3",
-    "redux": "^4.1.1",
-    "redux-form": "^8.3.7",
-    "serve": "^12.0.1"
+    "prop-types": "^15.8.1",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-redux": "^7.2.6",
+    "react-scripts": "^5.0.0",
+    "redux": "^4.1.2",
+    "redux-form": "^8.3.8",
+    "serve": "^13.0.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -99,16 +99,16 @@
     "not op_mini all"
   ],
   "devDependencies": {
-    "@cypress/code-coverage": "^3.9.11",
-    "@testing-library/react": "^12.1.0",
-    "cypress": "^8.4.1",
-    "eslint-config-airbnb": "^18.2.1",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-config-react-app": "^6.0.0",
+    "@cypress/code-coverage": "^3.9.12",
+    "@testing-library/react": "^12.1.4",
+    "cypress": "^9.5.3",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-react-app": "^7.0.0",
     "eslint-plugin-prettier": "^4.0.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "eslint-plugin-react-perf": "^3.3.0",
-    "prettier": "^2.4.1",
+    "eslint-plugin-react-hooks": "^4.4.0",
+    "eslint-plugin-react-perf": "^3.3.1",
+    "prettier": "^2.6.1",
     "start-server-and-test": "^1.14.0"
   },
   "heroku-run-build-script": true
